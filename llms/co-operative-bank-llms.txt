@@ -1,0 +1,35 @@
+# The Co-operative Bank — Open Banking APIs
+
+> The Co-operative Bank plc is a UK high-street retail and commercial bank (part of the Coventry Building Society Group since January 2025) and an FCA-authorised ASPSP under PSD2 / UK Open Banking. It implements the OBIE Read/Write API Standard v3.1 (spec v3.1.10) for the Co-operative Bank and smile brands, exposing Account Information (AIS), Payment Initiation (PIS) and Confirmation of Funds (CBPII) APIs, plus an OBIE Open Data reference-data API. Access requires manual TPP onboarding, Open Banking Directory certificates, mutual-TLS, FAPI OAuth2/OIDC and PSD2 SCA. Not one of the CMA9.
+
+## APIs
+- [Account Information API (AIS)](https://www.developer.co-operativebank.co.uk/apis/aisp/): OBIE AISP — account-access consents, accounts, balances, transactions, direct debits, standing orders, scheduled payments.
+- [Payment Initiation API (PIS)](https://www.developer.co-operativebank.co.uk/apis/pisp/): OBIE PISP — domestic payments, domestic scheduled payments, domestic standing orders and their consents.
+- [Confirmation of Funds API (CBPII)](https://www.developer.co-operativebank.co.uk/apis/cbpii/): OBIE CBPII — funds-confirmation consent and funds-confirmation checks.
+- [Open Data API](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/): OBIE Open Data reference data (ATMs, branches, products) — represented against the shared OBIE Open Data standard.
+
+## Authentication
+- [General specifications](https://www.developer.co-operativebank.co.uk/apis/general-specifications/): FAPI OAuth2 authorization-code + PKCE (S256), mutual-TLS with OB Directory certificates, PSD2 SCA step-up.
+- OIDC discovery: https://openbanking-retail.apis.co-operativebank.co.uk/apis/oauth/v1/.well-known/openid-configuration
+- Issuer: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/
+
+## Getting started
+- [Get started / TPP onboarding](https://www.developer.co-operativebank.co.uk/get-started/): manual onboarding via tpp.onboarding@co-operativebank.co.uk; needs FCA/GFSC regulation, OB Directory SSA and certificates.
+- [Sandbox environment](https://www.developer.co-operativebank.co.uk/help-and-support/sandbox-environment/): test PSU users Cbtester01 / Cbtester1025; test payment IDs 123456 / 123456789.
+
+## Docs
+- [AIS endpoints and errors](https://www.developer.co-operativebank.co.uk/apis/aisp/endpoints-and-errors/)
+- [PIS endpoints and errors](https://www.developer.co-operativebank.co.uk/apis/pisp/endpoints-and-errors/)
+- [CBPII endpoints and errors](https://www.developer.co-operativebank.co.uk/apis/cbpii/endpoints-and-errors/)
+- [Service status](https://www.developer.co-operativebank.co.uk/help-and-support/service-status/)
+- [Security disclosure](https://www.co-operativebank.co.uk/help-and-support/fraud-and-security/responsible-security-disclosure/)
+
+## Repo artifacts
+- Authentication: authentication/co-operative-bank-authentication.yml
+- OAuth scopes: scopes/co-operative-bank-scopes.yml
+- Conventions (idempotency, JWS, pagination): conventions/co-operative-bank-conventions.yml
+- Error catalog (UK.OBIE.*): errors/co-operative-bank-problem-types.yml
+- Lifecycle: lifecycle/co-operative-bank-lifecycle.yml
+- Conformance (OAuth2/OIDC/FAPI/PSD2/OBIE): conformance/co-operative-bank-conformance.yml
+- Sandbox test data: sandbox/co-operative-bank-sandbox.yml
+- Well-known index: well-known/co-operative-bank-well-known.yml

@@ -1,0 +1,50 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://www.developer.co-operativebank.co.uk/apis/general-specifications/ +
+  OBIE Read/Write API Standard v3.1 (implemented spec v3.1.10)
+standard: OBIE Read/Write API Standard v3.1 (spec v3.1.10)
+authentication:
+  style: FAPI OAuth2 authorization-code + PKCE (S256) over mutual-TLS; PSD2 SCA
+  ref: authentication/co-operative-bank-authentication.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  scope: POST payment-order and payment-consent operations (PIS)
+  retention: per OBIE Read/Write standard (24 hours)
+  source: >-
+    OBIE Read/Write 3.1 standard mandates the x-idempotency-key header on
+    payment-order POST operations, which this bank implements (v3.1.10);
+    idempotency-key is a required convention for domestic-payments,
+    domestic-scheduled-payments and domestic-standing-orders creation.
+  confidence: medium
+request_signing:
+  header: x-jws-signature
+  standard: OBIE detached JWS (JAdES) on payment orders
+  source: PIS endpoints return UK.OBIE.Signature.* validation errors
+fapi_headers:
+  headers: [x-fapi-auth-date, x-fapi-customer-ip-address, x-fapi-interaction-id]
+  note: OBIE Read/Write standard FAPI headers; x-fapi-interaction-id echoes for request tracing.
+request_tracing:
+  header: x-fapi-interaction-id
+pagination:
+  style: OBIE Links/Meta (Self/First/Prev/Next/Last links + Meta.TotalPages)
+  params: [page]
+  response_fields: [Links, Meta]
+versioning:
+  scheme: uri-path
+  current: v3.1
+  spec_version: v3.1.10
+  base_path: /apis/retail/open-banking/v3.1/{aisp|pisp|cbpii}
+consent_model:
+  pattern: >-
+    Two-stage OBIE consent: TPP creates a consent resource (account-access /
+    payment / funds-confirmation consent), PSU authorises it via the
+    authorization-code + SCA journey, then the TPP calls the resource endpoints
+    or submits the payment order bound to the authorised ConsentId.
+error_envelope:
+  ref: errors/co-operative-bank-problem-types.yml
+  shape: OBIE OBErrorResponse (Code / Id / Message + Errors[] of {ErrorCode, Message, Path})
+rate_limit_signaling:
+  documented: false
+  note: No rate-limit headers documented on the developer portal; OBIE standard leaves ASPSP throttling implementation-defined.

@@ -1,0 +1,35 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of Co-operative Bank Open Banking hosts
+hosts:
+- https://openbanking-retail.apis.co-operativebank.co.uk
+- https://bank-retail.apis.co-operativebank.co.uk
+- https://www.co-operativebank.co.uk
+- https://www.developer.co-operativebank.co.uk
+documents:
+- path: /apis/oauth/v1/.well-known/openid-configuration
+  host: https://openbanking-retail.apis.co-operativebank.co.uk
+  status: 200
+  file: co-operative-bank-openid-configuration.json
+  note: >-
+    OIDC discovery for the retail Open Banking OAuth2 authorization server;
+    issuer is https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/
+- path: /.well-known/security.txt
+  host: https://www.co-operativebank.co.uk
+  status: 200
+  file: co-operative-bank-security.txt
+- path: /.well-known/security.txt
+  host: https://www.developer.co-operativebank.co.uk
+  status: 404
+- path: /.well-known/security.txt
+  host: https://openbanking-retail.apis.co-operativebank.co.uk
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://www.co-operativebank.co.uk
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  host: https://openbanking-retail.apis.co-operativebank.co.uk
+  status: 404
+- path: /.well-known/api-catalog
+  host: https://www.developer.co-operativebank.co.uk
+  status: 404

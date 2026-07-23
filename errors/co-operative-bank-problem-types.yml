@@ -1,0 +1,103 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://www.developer.co-operativebank.co.uk/apis/aisp/endpoints-and-errors/ +
+  /apis/pisp/endpoints-and-errors/ + /apis/cbpii/endpoints-and-errors/
+format: obie-oberror
+envelope:
+  standard: OBIE OBError structure (Code / Message / Path in an Errors[] array)
+  media_type: application/json
+  note: >-
+    Not RFC 9457 problem+json; the bank returns the OBIE Read/Write 3.1
+    UK.OBIE.* error taxonomy in an OBErrorResponse envelope.
+problems:
+- code: UK.OBIE.Field.InvalidDate
+  status: 400
+  title: Invalid date
+  detail: Consent expiration date must be a future date; PIS dates cannot be today, past, a weekend, a bank holiday, beyond two years, or malformed.
+  apis: [AIS, PIS, CBPII]
+- code: UK.OBIE.Field.Invalid
+  status: 400
+  title: Invalid field value
+  detail: Invalid amount, or profanity detected in a payment reference.
+  apis: [PIS]
+- code: UK.OBIE.Field.Missing
+  status: 400
+  title: Mandatory field missing
+  detail: A required key/field defined by the OB spec was not found in the request.
+  apis: [AIS, PIS, CBPII]
+- code: UK.OBIE.Resource.NotFound
+  status: 400
+  title: Resource not found
+  detail: Consent, account or payment identifier not found (or invalid AccountId).
+  apis: [AIS, PIS, CBPII]
+- code: UK.OBIE.Resource.InvalidConsentStatus
+  status: 400
+  title: Invalid consent status
+  detail: The consent is not in the Authorised state.
+  apis: [AIS, PIS, CBPII]
+- code: UK.OBIE.Resource.ConsentMismatch
+  status: 400
+  title: Consent mismatch
+  detail: The payment order does not match its authorised consent.
+  apis: [PIS]
+- code: UK.OBIE.Resource.InvalidFormat
+  status: 400
+  title: Invalid format
+  detail: A field failed pattern/format validation.
+  apis: [PIS, CBPII]
+- code: UK.OBIE.Unsupported.Scheme
+  status: 400
+  title: Unsupported scheme
+  detail: Invalid scheme name enum for a debtor/creditor account identifier.
+  apis: [PIS, CBPII]
+- code: UK.OBIE.Unsupported.AccountIdentifier
+  status: 400
+  title: Unsupported account identifier
+  detail: Account identification length is incorrect.
+  apis: [PIS, CBPII]
+- code: UK.OBIE.Unsupported.Currency
+  status: 400
+  title: Unsupported currency
+  detail: A non-GBP currency was submitted.
+  apis: [CBPII]
+- code: UK.OBIE.Signature.Missing
+  status: 400
+  title: JWS signature missing
+  detail: The mandatory x-jws-signature header was not supplied on a payment order.
+  apis: [PIS]
+- code: UK.OBIE.Signature.Malformed
+  status: 400
+  title: JWS signature malformed
+  detail: The detached JWS signature is malformed.
+  apis: [PIS]
+- code: UK.OBIE.Signature.Invalid
+  status: 400
+  title: JWS signature invalid
+  detail: JWS signature verification failed.
+  apis: [PIS]
+- code: UK.OBIE.Signature.MissingClaim
+  status: 400
+  title: JWS missing claim
+  detail: The JWS is missing a mandatory claim.
+  apis: [PIS]
+- code: UK.OBIE.Signature.InvalidClaim
+  status: 400
+  title: JWS invalid claim
+  detail: The JWS contains an invalid claim value.
+  apis: [PIS]
+- code: UK.OBIE.Reauthenticate
+  status: 403
+  title: Re-authentication required
+  detail: PSU re-authentication (SCA step-up) is required, e.g. for sensitive AIS data.
+  apis: [AIS]
+- code: null
+  status: 401
+  title: Unauthorised
+  detail: Invalid or missing access token.
+  apis: [CBPII, AIS, PIS]
+- code: UK.OBIE.UnexpectedError
+  status: 500
+  title: Unexpected error
+  detail: Temporary system error / unknown temporary error.
+  apis: [AIS, PIS, CBPII]

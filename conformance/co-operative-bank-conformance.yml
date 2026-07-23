@@ -1,0 +1,38 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://www.developer.co-operativebank.co.uk/apis/general-specifications/ +
+  OIDC discovery + endpoints-and-errors pages
+standards:
+- id: oauth2
+  conforms: true
+  evidence: authorization-code flow with token endpoint per OIDC discovery document
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration published; openid scope + id_token response types supported
+- id: fapi
+  conforms: true
+  evidence: >-
+    FAPI-grade controls — private_key_jwt token auth, PKCE S256, mutual-TLS with
+    OB Directory certificates, and detached JWS request signing on payment orders.
+- id: psd2
+  conforms: true
+  evidence: FCA-authorised ASPSP under PSD2; PSD2 SCA (2FA step-up) enforced on sensitive journeys
+- id: obie-read-write-3.1
+  conforms: true
+  evidence: implements OBIE Read/Write API Standard v3.1 (spec v3.1.10) AIS/PIS/CBPII endpoints and UK.OBIE.* error taxonomy
+- id: mutual-tls
+  conforms: true
+  evidence: all API calls require TLS mutual authentication with OB Directory signed client certificates
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: uses the OBIE OBError envelope rather than application/problem+json
+- id: fhir-r4
+  conforms: false
+- id: scim
+  conforms: false
+regulatory:
+  authorised_by: PRA
+  regulated_by: [FCA, PRA]
+  regime: PSD2 / UK Open Banking (OBIE Read/Write Standard)
+  role: FCA-authorised ASPSP

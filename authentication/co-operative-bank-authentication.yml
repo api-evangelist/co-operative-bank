@@ -1,0 +1,57 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://www.developer.co-operativebank.co.uk/apis/general-specifications/ +
+  https://openbanking-retail.apis.co-operativebank.co.uk/apis/oauth/v1/.well-known/openid-configuration
+docs: https://www.developer.co-operativebank.co.uk/apis/general-specifications/
+summary:
+  model: FAPI-grade OAuth2 / OpenID Connect with mutual-TLS and PSD2 SCA (OBIE Read/Write 3.1)
+  types: [oauth2, openIdConnect, mutualTLS]
+  oauth2_flows: [authorizationCode]
+  api_key_in: []
+  transport_security: mutual-TLS (client certificates signed by the Open Banking Directory)
+issuer: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/
+endpoints:
+  authorization: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/auth
+  token: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/token
+  token_sandbox: https://sandbox-openbanking-retail.apis.co-operativebanktest.co.uk/apis/oauth/v1/oauth2/token
+  token_production: https://openbanking-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/token
+schemes:
+- name: OpenBankingOAuth2
+  type: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/auth
+  tokenUrl: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/token
+  pkce:
+    required: true
+    code_challenge_method: S256
+  token_endpoint_auth_methods_supported: [client_secret_post, client_secret_basic, private_key_jwt, none]
+  grant_types_supported: [authorization_code, implicit, client_credentials, refresh_token]
+  response_types_supported: [code, code id_token, id_token, token id_token, token, token id_token code]
+  access_token_ttl: 30 minutes
+  refresh_token_ttl: 30 days
+- name: OpenIDConnect
+  type: openIdConnect
+  openIdConnectUrl: https://openbanking-retail.apis.co-operativebank.co.uk/apis/oauth/v1/.well-known/openid-configuration
+- name: MutualTLS
+  type: mutualTLS
+  description: >-
+    All API calls require TLS mutual authentication with client transport
+    certificates signed by the Open Banking Directory; certificates must have a
+    minimum of 90 days until expiry (OBWAC/OBSEAL eIDAS certificates).
+strong_customer_authentication:
+  standard: PSD2 SCA
+  step_up_2fa: >-
+    Two-factor step-up is required in AIS journeys where sensitive data is
+    requested (transactions over 90 days, standing orders, direct debits, or
+    scheduled payments).
+request_signing:
+  standard: OBIE JWS detached signature (JAdES)
+  evidence: >-
+    Payment endpoints return UK.OBIE.Signature.Missing / .Malformed / .Invalid /
+    .MissingClaim / .InvalidClaim errors, confirming JWS request-signature
+    validation on PIS payment orders.
+onboarding:
+  model: manual TPP onboarding
+  contact: tpp.onboarding@co-operativebank.co.uk
+  requires: [FCA or Gibraltar FSC regulation, Open Banking Directory SSA (Software Statement Assertion), OB Directory transport + signing certificates]

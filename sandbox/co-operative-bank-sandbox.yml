@@ -1,0 +1,36 @@
+generated: '2026-07-23'
+method: searched
+source: https://www.developer.co-operativebank.co.uk/help-and-support/sandbox-environment/
+docs: https://www.developer.co-operativebank.co.uk/help-and-support/sandbox-environment/
+environment:
+  name: Open Banking sandbox
+  token_endpoint: https://sandbox-openbanking-retail.apis.co-operativebanktest.co.uk/apis/oauth/v1/oauth2/token
+  access: >-
+    Granted after manual TPP sandbox onboarding (sandbox onboarding form to
+    tpp.onboarding@co-operativebank.co.uk with FCA/GFSC proof, OB Directory SSA
+    and certificates).
+test_psu_users:
+- username: Cbtester01
+  note: FundsAvailabilityParameter = True
+- username: Cbtester1025
+  note: FundsAvailabilityParameter = False
+- note: Live PSU usernames and credentials are provided only after successful onboarding.
+test_payment_ids:
+- context: Domestic and future-dated payments
+  value: '123456'
+- context: Standing orders
+  value: '123456789'
+mock_data:
+  includes: [PSU information, accounts, transactions, balances, beneficiaries, direct debits, standing orders, scheduled payments, product]
+supported:
+- Primary authentication
+- Mock data for set-up authentication
+- Online journey
+permissions_supported:
+- ReadAccountsBasic
+unsupported:
+- Fraud checks
+- Daily limit checks
+- Mobile app journey
+- Stress / load / performance / penetration testing
+note: Never invent additional test values; only the published sandbox values above are asserted.

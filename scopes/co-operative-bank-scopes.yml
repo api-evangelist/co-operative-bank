@@ -1,0 +1,51 @@
+generated: '2026-07-23'
+method: searched
+source: https://openbanking-retail.apis.co-operativebank.co.uk/apis/oauth/v1/.well-known/openid-configuration
+docs: https://www.developer.co-operativebank.co.uk/apis/general-specifications/
+schemes:
+- name: OpenBankingOAuth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/auth
+    tokenUrl: https://bank-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; required to obtain an id_token for the PSU.
+  flows: [authorizationCode]
+  source: openid-configuration scopes_supported
+- scope: offline_access
+  description: Request a refresh token so the TPP can obtain new access tokens without re-authenticating the PSU (within the consent window).
+  flows: [authorizationCode]
+  source: openid-configuration scopes_supported
+- scope: offline
+  description: Offline access variant advertised by the authorization server.
+  flows: [authorizationCode]
+  source: openid-configuration scopes_supported
+- scope: accounts
+  description: >-
+    OBIE Read/Write account-information (AIS) scope requested at the token
+    endpoint alongside a signed account-access-consent, gating accounts,
+    balances, transactions, direct debits, standing orders and scheduled
+    payments. (OBIE Read/Write standard scope; not enumerated in the OIDC
+    discovery document but required by the AISP flow.)
+  flows: [authorizationCode]
+  source: OBIE Read/Write 3.1 standard
+- scope: payments
+  description: >-
+    OBIE Read/Write payment-initiation (PIS) scope requested alongside a signed
+    payment-order consent for domestic payments, scheduled payments and standing
+    orders. (OBIE Read/Write standard scope.)
+  flows: [authorizationCode]
+  source: OBIE Read/Write 3.1 standard
+- scope: fundsconfirmation
+  description: >-
+    OBIE Read/Write confirmation-of-funds (CBPII) scope requested alongside a
+    funds-confirmation consent. (OBIE Read/Write standard scope.)
+  flows: [authorizationCode]
+  source: OBIE Read/Write 3.1 standard
+note: >-
+  The bank's authorization server advertises only openid/offline_access/offline
+  in its OIDC discovery document; the accounts/payments/fundsconfirmation scopes
+  are the OBIE Read/Write 3.1 standard scopes that gate the corresponding
+  consent + resource endpoints and are documented as OBIE standard, not verified
+  in the discovery document.

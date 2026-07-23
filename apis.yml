@@ -134,6 +134,12 @@ apis:
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
 common:
+- type: VulnerabilityDisclosure
+  url: security/co-operative-bank-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/co-operative-bank-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/co-operative-bank-agentic-access.yml
 - type: Website
   url: https://www.co-operativebank.co.uk/
 - type: DeveloperPortal
@@ -154,6 +160,34 @@ common:
   url: https://www.developer.co-operativebank.co.uk/help-and-support/privacy-cookie-policies/
 - type: LinkedIn
   url: https://www.linkedin.com/company/the-co-operative-bank
+- type: SignUp
+  url: https://www.developer.co-operativebank.co.uk/get-started/
+- type: Authentication
+  url: authentication/co-operative-bank-authentication.yml
+- type: OAuthScopes
+  url: scopes/co-operative-bank-scopes.yml
+- type: Conventions
+  url: conventions/co-operative-bank-conventions.yml
+- type: Idempotency
+  url: conventions/co-operative-bank-conventions.yml
+- type: ErrorCatalog
+  url: errors/co-operative-bank-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/co-operative-bank-lifecycle.yml
+- type: Conformance
+  url: conformance/co-operative-bank-conformance.yml
+- type: Sandbox
+  url: sandbox/co-operative-bank-sandbox.yml
+- type: WellKnown
+  url: well-known/co-operative-bank-well-known.yml
+- type: SecurityTxt
+  url: well-known/co-operative-bank-security.txt
+- type: Security
+  url: https://www.co-operativebank.co.uk/help-and-support/fraud-and-security/responsible-security-disclosure/
+- type: LLMsTxt
+  url: llms/co-operative-bank-llms.txt
+- type: Overlay
+  url: overlays/co-operative-bank-open-data-overlay.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

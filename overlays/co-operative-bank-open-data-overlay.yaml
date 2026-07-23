@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for The Co-operative Bank Open Data API
+  version: 1.0.0
+extends: openapi/obie-open-data-api-standard-swagger.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: The Co-operative Bank
+    x-apievangelist-standard: OBIE Open Data API Standard
+    x-apievangelist-note: >-
+      This spec is the shared OBIE Open Data API Standard, not a Co-operative
+      Bank-specific contract; a live Co-operative Bank Open Data host was not
+      confirmed. The bank's authenticated OBIE Read/Write AIS/PIS/CBPII surface
+      is documented at developer.co-operativebank.co.uk (no public spec file).
+- target: $.info
+  update:
+    x-apievangelist-regime: PSD2 / UK Open Banking
+    x-apievangelist-regulated-by: [FCA, PRA]
+    x-apievangelist-role: FCA-authorised ASPSP

@@ -1,0 +1,26 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://www.developer.co-operativebank.co.uk/apis/general-specifications/ +
+  https://www.developer.co-operativebank.co.uk/help-and-support/service-status/
+versioning:
+  scheme: uri-path
+  current: v3.1
+  spec_version: v3.1.10
+  standard: OBIE Read/Write API Standard
+  docs: https://www.developer.co-operativebank.co.uk/apis/general-specifications/
+status_page: https://www.developer.co-operativebank.co.uk/help-and-support/service-status/
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No explicit deprecation / sunset policy is published on the developer
+    portal; API version lifecycle tracks the OBIE Read/Write standard releases.
+sla:
+  url: null
+  note: TPP support and onboarding handled manually via tpp.onboarding@co-operativebank.co.uk.
+certificate_lifecycle:
+  transport_certs: Open Banking Directory signed; minimum 90 days validity required
+  access_token_ttl: 30 minutes
+  refresh_token_ttl: 30 days
+deprecated_operations: []
