@@ -1,0 +1,121 @@
+aid: co-operative-bank
+name: The Co-operative Bank
+review:
+  question: >-
+    Does The Co-operative Bank operate a public Open Banking developer portal, is
+    a live Open Data endpoint confirmable, and what is its OBIE Read/Write
+    conformance and authentication model?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    The Co-operative Bank runs a live, public Open Banking developer portal at
+    https://www.developer.co-operativebank.co.uk/ (HTTP 200) documenting three
+    OBIE Read/Write API families — Account Information (AISP), Payment Initiation
+    (PISP) and Confirmation of Funds (CBPII) — for both the Co-operative Bank and
+    smile brands. The documented production base is
+    https://openbanking-retail.apis.co-operativebank.co.uk with the context path
+    /apis/retail/open-banking/v3.1/{aisp|pisp|cbpii}, and a sandbox at
+    sandbox-openbanking-retail.apis.co-operativebanktest.co.uk. An unauthenticated
+    probe of the AIS accounts path returned HTTP 400 (host live, path present,
+    request rejected without a valid FAPI/mTLS session) — corroborating the base
+    URL rather than a 404. The CBPII context path
+    /apis/retail/open-banking/v3.1/cbpii/ is stated verbatim in the portal docs.
+    Access is FAPI-grade OAuth2/OIDC with mutual-TLS client authentication using
+    Open Banking directory (eIDAS/OBIE) certificates, PSD2 strong customer
+    authentication, and a Software Statement Assertion (SSA); onboarding is a
+    manual TPP process (request a secure email, submit documents, complete an
+    onboarding form). The bank is an FCA-authorised ASPSP but is NOT one of the
+    CMA9. No live Co-operative Bank Open Data (ATM/Branch) endpoint could be
+    confirmed during this review — candidate hosts under co-operativebank.co.uk
+    returned connection failures (000) or 404 — so Open Data is represented
+    against the shared OBIE Open Data API Standard only, with no bank-specific
+    host asserted.
+  specProvenance:
+    readWrite:
+      standard: OBIE Read/Write API Standard v3.1
+      proprietary: false
+      note: >-
+        Portal documents Co-operative Bank's deltas from the OBIE standard in
+        prose ("where our implementation differs"); no machine-readable
+        bank-proprietary OpenAPI file is published for download. Read/Write APIs
+        are pointed at via the bank's documentation and conform to the shared
+        OBIE Read/Write specs (github.com/OpenBankingUK/read-write-api-specs).
+    openData:
+      harvested: openapi/obie-open-data-api-standard-swagger.json
+      standard: OBIE Open Data API v1.3 (Swagger 2.0, shared standard)
+      proprietary: false
+      note: >-
+        Harvested VERBATIM from
+        github.com/OpenBankingUK/opendata-api-spec-compiled (opendata-swagger.json).
+        This is the SHARED OBIE standard (host developer.openbanking.org.uk
+        reference implementation, basePath /reference-implementation/open-banking/v1.3),
+        NOT a Co-operative Bank contract. Paths: /branches, /atms,
+        /personal-current-accounts, /business-current-accounts,
+        /unsecured-sme-loans, /commercial-credit-cards.
+  openDataConfirmed: false
+  openDataBaseURL: ''
+  authModel:
+    - FAPI
+    - OAuth2/OIDC
+    - mutual-TLS (OBIE/eIDAS directory certificates)
+    - PSD2 Strong Customer Authentication
+    - Software Statement Assertion (SSA)
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+      documented: true
+      note: OBIE Read/Write AISP. Unauthenticated probe of /accounts returned HTTP 400 (live host, path present).
+    - protocol: REST
+      scheme: https
+      baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/pisp
+      documented: true
+      note: OBIE Read/Write PISP (domestic payments, scheduled payments, standing orders).
+    - protocol: REST
+      scheme: https
+      baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/cbpii
+      documented: true
+      note: OBIE Read/Write CBPII. Context path quoted verbatim in portal docs.
+    - protocol: OAuth
+      scheme: https
+      baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/oauth/v1/oauth2/token
+      documented: true
+      note: Production OAuth2 token endpoint documented in API general specifications.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: OBIE Open Data (ATM/Branch/Products) — no live Co-operative Bank host confirmed; represented via shared OBIE standard only.
+sources:
+  - url: https://www.developer.co-operativebank.co.uk/
+    type: DeveloperPortal
+    note: Live (HTTP 200). Lists AIS, PIS, CBPII products for Co-operative Bank and smile.
+  - url: https://www.developer.co-operativebank.co.uk/apis/general-specifications/
+    type: Documentation
+    note: Production/sandbox OAuth hosts, consent-redirect URLs, mTLS + step-up 2FA security model, v3.1.10 reference.
+  - url: https://www.developer.co-operativebank.co.uk/apis/cbpii/endpoints-and-errors/
+    type: APIReference
+    note: Confirms base host openbanking-retail.apis.co-operativebank.co.uk and context path /apis/retail/open-banking/v3.1/cbpii/.
+  - url: https://www.developer.co-operativebank.co.uk/apis/aisp/
+    type: Documentation
+    note: AIS resource list (accounts, balances, transactions, direct-debits, standing-orders, scheduled-payments).
+  - url: https://www.developer.co-operativebank.co.uk/apis/pisp/
+    type: Documentation
+    note: PIS resource list (domestic payments, scheduled payments, standing orders + consents).
+  - url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+    type: OpenAPI
+    note: Source of the harvested shared OBIE Open Data Swagger 2.0 standard (opendata-swagger.json, v1.3).
+  - url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+    type: Documentation
+    note: OBIE Open Data v2.4.0 published docs (ATM Locator, Branch Locator) — shared standard reference.
+actions:
+  openapiHarvested: true
+  openapiPath: openapi/obie-open-data-api-standard-swagger.json
+  reason: |
+    Only the shared OBIE Open Data standard spec was publicly downloadable; the
+    bank publishes no proprietary machine-readable OpenAPI. Harvested that
+    standard verbatim and labeled it as the shared OBIE standard, not a
+    Co-operative Bank contract. Read/Write APIs are represented as documented
+    (authenticated) APIs pointing at the bank's live portal and conforming to the
+    OBIE Read/Write v3.1 standard.
