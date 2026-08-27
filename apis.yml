@@ -62,13 +62,12 @@ apis:
 - aid: co-operative-bank:account-information-api
   name: The Co-operative Bank Account Information API (AIS)
   description: >-
-    OBIE Read/Write Account & Transaction Information (AISP) API for The
-    Co-operative Bank and smile brands — account-access consents, accounts,
-    balances, transactions, direct debits, standing orders and scheduled
-    payments. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP
-    onboarding.
+    OBIE Read/Write Account & Transaction Information (AISP) API for The Co-operative Bank and smile brands
+    — account-access consents, accounts, balances, transactions, direct debits, standing orders and scheduled
+    payments. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP onboarding.
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
-  baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
   - Account Information
   - AISP
@@ -83,12 +82,12 @@ apis:
 - aid: co-operative-bank:payment-initiation-api
   name: The Co-operative Bank Payment Initiation API (PIS)
   description: >-
-    OBIE Read/Write Payment Initiation (PISP) API for The Co-operative Bank and
-    smile brands — domestic payments, domestic scheduled payments and domestic
-    standing orders, with their associated consents. FAPI-secured (OAuth2/OIDC,
-    mTLS, PSD2 SCA); requires TPP onboarding.
+    OBIE Read/Write Payment Initiation (PISP) API for The Co-operative Bank and smile brands — domestic
+    payments, domestic scheduled payments and domestic standing orders, with their associated consents.
+    FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP onboarding.
   humanURL: https://www.developer.co-operativebank.co.uk/apis/pisp/
-  baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/pisp
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/pisp
   tags:
   - Payment Initiation
   - PISP
@@ -104,12 +103,12 @@ apis:
 - aid: co-operative-bank:confirmation-of-funds-api
   name: The Co-operative Bank Confirmation of Funds API (CBPII)
   description: >-
-    OBIE Read/Write Confirmation of Funds (CBPII / Card-Based Payment
-    Instrument) API — funds-confirmation consent and funds-confirmation
-    checks for The Co-operative Bank and smile brands. FAPI-secured
-    (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP onboarding.
+    OBIE Read/Write Confirmation of Funds (CBPII / Card-Based Payment Instrument) API — funds-confirmation
+    consent and funds-confirmation checks for The Co-operative Bank and smile brands. FAPI-secured (OAuth2/OIDC,
+    mTLS, PSD2 SCA); requires TPP onboarding.
   humanURL: https://www.developer.co-operativebank.co.uk/apis/cbpii/
-  baseURL: https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/cbpii
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/cbpii
   tags:
   - Confirmation of Funds
   - CBPII
@@ -121,30 +120,92 @@ apis:
     url: https://www.developer.co-operativebank.co.uk/apis/cbpii/endpoints-and-errors/
   - type: Documentation
     url: https://www.developer.co-operativebank.co.uk/apis/general-specifications/
-- aid: co-operative-bank:open-data-api
-  name: The Co-operative Bank Open Data API (OBIE standard)
-  description: >-
-    Public, unauthenticated OBIE Open Data reference data (ATMs, Branches,
-    Personal & Business Current Accounts, Unsecured SME Loans, Commercial
-    Credit Cards). Represented here against the shared OBIE Open Data API
-    Standard — a live Co-operative Bank Open Data host was NOT confirmed during
-    this bootstrap, so no bank-specific base URL is asserted. The attached
-    OpenAPI is the OBIE shared standard, not a Co-operative Bank contract.
-  humanURL: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
-  baseURL: ''
+- aid: co-operative-bank:co-operative-bank-atm-api
+  name: The Co-operative Bank ATM API
+  description: Endpoint for getting ATM data
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - Open Data
-  - ATM Locator
-  - Branch Locator
-  - Product
-  tags_raw:
-  - Open Data
-  - ATM Locator
-  - Branch Locator
-  - Products
+  - ATM
   properties:
   - type: OpenAPI
-    url: openapi/obie-open-data-api-standard-swagger.json
+    url: openapi/co-operative-bank-atm-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-bca-api
+  name: The Co-operative Bank BCA API
+  description: Endpoint for getting Business Current Account data
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - BCA
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-bca-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-branch-api
+  name: The Co-operative Bank Branch API
+  description: Endpoint for getting Branch data
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Branch
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-branch-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-ccc-api
+  name: The Co-operative Bank CCC API
+  description: Endpoint for getting Commercial Credit Card data
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - CCC
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-ccc-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-pca-api
+  name: The Co-operative Bank PCA API
+  description: Endpoint for getting Personal Current Account data
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - PCA
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-pca-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-sme-api
+  name: The Co-operative Bank SME API
+  description: Endpoint for getting Unsecured SME Loan data
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - SME
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-sme-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
