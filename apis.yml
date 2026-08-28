@@ -19,6 +19,18 @@ description: >-
   mutual-TLS client authentication using Open Banking directory certificates,
   and PSD2 strong customer authentication, with a manual TPP onboarding process
   and a sandbox for testing before production.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: request
