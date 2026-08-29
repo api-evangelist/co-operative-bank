@@ -223,6 +223,9 @@ apis:
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
 common:
+- type: CapabilityMap
+  url: capabilities/co-operative-bank-capability-edges.yml
+  name: The Co-operative Bank Business Capability Map
 - type: VulnerabilityDisclosure
   url: security/co-operative-bank-vulnerability-disclosure.yml
 - type: DomainSecurity
