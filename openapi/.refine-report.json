@@ -1,0 +1,30 @@
+{
+  "provider": "co-operative-bank",
+  "sources": [
+    "_original/obie-open-data-api-standard-swagger.json"
+  ],
+  "outputs": [
+    "co-operative-bank-atm-api-openapi.yml",
+    "co-operative-bank-bca-api-openapi.yml",
+    "co-operative-bank-branch-api-openapi.yml",
+    "co-operative-bank-ccc-api-openapi.yml",
+    "co-operative-bank-pca-api-openapi.yml",
+    "co-operative-bank-sme-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "obie-open-data-api-standard-swagger.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "co-operative-bank-atm-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "co-operative-bank-bca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "co-operative-bank-branch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "co-operative-bank-ccc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "co-operative-bank-pca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "co-operative-bank-sme-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
