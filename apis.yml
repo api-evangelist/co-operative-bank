@@ -46,7 +46,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Financial-Services
+- Financial Services
 - Banking
 - Open Banking
 - PSD2
@@ -67,6 +67,7 @@ tags_raw:
 - Account Information
 - Confirmation of Funds
 - Fintech
+- Financial-Services
 created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
@@ -214,6 +215,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - Small Business
+  tags_raw:
   - SME
   properties:
   - type: OpenAPI
