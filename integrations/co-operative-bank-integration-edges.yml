@@ -1,0 +1,18 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/co-operative-bank/integrations
+- https://zapier.com/apps/the-co-operative-bank/integrations
+- https://n8n.io/integrations/co-operative-bank/
+- https://composio.dev/toolkits/co-operative-bank
+- https://monid.ai/tools/co-operative-bank
+checked:
+- https://composio.dev/toolkits/co-operative-bank
+- https://monid.ai/tools/co-operative-bank
+- https://n8n.io/integrations/co-operative-bank/
+- https://zapier.com/apps/co-operative-bank/integrations
+- https://zapier.com/apps/the-co-operative-bank/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
