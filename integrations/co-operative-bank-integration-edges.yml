@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/co-operative-bank/integrations
 - https://zapier.com/apps/the-co-operative-bank/integrations
@@ -10,9 +10,27 @@ checked:
 - https://composio.dev/toolkits/co-operative-bank
 - https://monid.ai/tools/co-operative-bank
 - https://n8n.io/integrations/co-operative-bank/
+- https://www.openbanking.org.uk/regulated-providers/the-co-operative-bank-plc/
 - https://zapier.com/apps/co-operative-bank/integrations
 - https://zapier.com/apps/the-co-operative-bank/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: UK Open Banking
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.openbanking.org.uk/regulated-providers/the-co-operative-bank-plc/
+  contract_reference:
+    register: UK Open Banking regulated providers (OBL directory)
+    spec_file: null
+    role: Account Providers
+    registered_name: The Co-operative Bank
+    register_id: https://register.fca.org.uk/s/firm?id=001b000000MfFIYAA3
+    matched_domain: co-operativebank.co.uk
+    api_families: null
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
 templates: []
