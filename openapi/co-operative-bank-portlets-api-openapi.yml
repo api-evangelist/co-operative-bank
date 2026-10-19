@@ -1,0 +1,481 @@
+openapi: 3.2.0
+info:
+  title: dotCMS REST Portlets API
+  version: '3'
+  description: Portlet management and administration
+servers:
+- url: /
+  description: dotCMS Server
+tags:
+- name: Portlets
+  description: Portlet management and administration
+paths:
+  /api/portlet/layout/{params}:
+    get:
+      tags:
+      - Portlets
+      operationId: getLayout_1
+      parameters:
+      - name: params
+        in: path
+        required: true
+        schema:
+          pattern: .*
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            text/html: {}
+      summary: Get layout 1
+      x-summary-source: derived
+  /api/portlet/{params}:
+    get:
+      tags:
+      - Portlets
+      operationId: layoutGet
+      parameters:
+      - name: params
+        in: path
+        required: true
+        schema:
+          pattern: .*
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            text/html: {}
+      summary: Layout get
+      x-summary-source: derived
+    post:
+      tags:
+      - Portlets
+      operationId: layoutPost
+      parameters:
+      - name: params
+        in: path
+        required: true
+        schema:
+          pattern: .*
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            text/html: {}
+      summary: Layout post
+      x-summary-source: derived
+  /api/v1/portlet/custom/{portletId}/_addtolayout/{layoutId}:
+    put:
+      tags:
+      - Portlets
+      operationId: addContentPortletToLayout
+      parameters:
+      - name: portletId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: layoutId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+            application/javascript: {}
+      summary: Add content portlet to layout
+      x-summary-source: derived
+  /api/v1/portlet/custom/{portletId}:
+    get:
+      tags:
+      - Portlets
+      summary: Read one custom content tool's configuration
+      description: 'Returns the editable configuration of a custom content tool: id, name, base types, content types and data view mode. Requires an authenticated back-end user with access to the tools or tools-beta portlet, or the CMS Administrator role.'
+      operationId: getCustomTool
+      parameters:
+      - name: portletId
+        in: path
+        description: Stored id of the custom tool, c_ prefix included
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Custom tool found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityCustomToolView'
+        '401':
+          description: Unauthorized - no authenticated back-end user, or the caller holds neither the tools nor the tools-beta portlet and is not a CMS Administrator
+          content:
+            application/json: {}
+        '404':
+          description: No portlet has this id, or it is a tool shipped with the product and has no custom configuration
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Portlets
+      summary: Delete a custom content tool
+      description: 'Removes the custom content tool and takes it out of every navigation section that contained it. Refuses, with 404 and no change, any id that is not a custom content tool: tools shipped with the product cannot be removed this way. Requires an authenticated back-end user with access to the roles, tools or tools-beta portlet, or the CMS Administrator role.'
+      operationId: deleteCustomPortlet
+      parameters:
+      - name: portletId
+        in: path
+        description: Stored id of the custom tool, c_ prefix included
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Deleted; the entity carries a confirmation under "message"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityMapStringStringView'
+        '401':
+          description: Unauthorized - no authenticated back-end user, or the caller holds none of the roles, tools or tools-beta portlets and is not a CMS Administrator
+          content:
+            application/json: {}
+        '404':
+          description: No portlet has this id, or it is a tool shipped with the product
+          content:
+            application/json: {}
+  /api/v1/portlet/portletId/{portletId}:
+    delete:
+      tags:
+      - Portlets
+      operationId: deletePersonalPortlet
+      parameters:
+      - name: portletId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+            application/javascript: {}
+      summary: Delete personal portlet
+      x-summary-source: derived
+  /api/v1/portlet/portletId/{portletId}/roleId/{roleId}:
+    delete:
+      tags:
+      - Portlets
+      operationId: deletePortletForRole
+      parameters:
+      - name: portletId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: roleId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+            application/javascript: {}
+      summary: Delete portlet for role
+      x-summary-source: derived
+  /api/v1/portlet/{portletId}/_doesuserhaveaccess:
+    get:
+      tags:
+      - Portlets
+      operationId: doesUserHaveAccessToPortlet
+      parameters:
+      - name: portletId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+            application/javascript: {}
+      summary: Does user have access to portlet
+      x-summary-source: derived
+  /api/v1/portlet/{portletId}:
+    get:
+      tags:
+      - Portlets
+      operationId: findPortlet
+      parameters:
+      - name: portletId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+            application/javascript: {}
+      summary: Find portlet
+      x-summary-source: derived
+  /api/v1/portlet/_actionurl/{contentTypeVariable}:
+    get:
+      tags:
+      - Portlets
+      operationId: getCreateContentURL
+      parameters:
+      - name: contentTypeVariable
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: language_id
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+            application/javascript: {}
+      summary: Get create content URL
+      x-summary-source: derived
+  /api/v1/portlet/_catalog:
+    get:
+      tags:
+      - Portlets
+      summary: List the tools that can be placed in a navigation section
+      description: 'Every portlet that can be added to a section, with the same inclusion rules as the legacy Roles & Tools tool picker: portlets excluded from layouts are omitted, and the old Languages tool is omitted while FEATURE_FLAG_LOCALES_HIDE_OLD_LANGUAGES_PORTLET is on. Sorted by title ignoring letter case. Each row carries the id, the localized title and an isCustom flag that is true only for tools an admin created through New Tool. Requires an authenticated back-end user with access to the tools or tools-beta portlet, or the CMS Administrator role.'
+      operationId: getToolsCatalog
+      responses:
+        '200':
+          description: Catalog retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityToolCatalogView'
+        '401':
+          description: Unauthorized - no authenticated back-end user, or the caller holds neither the tools nor the tools-beta portlet and is not a CMS Administrator
+          content:
+            application/json: {}
+  /api/v1/portlet/custom:
+    put:
+      tags:
+      - Portlets
+      summary: Update a custom content tool
+      description: 'Replaces the name, base types, content types and data view mode of an existing custom content tool. Refuses, with 404 and no change, an id that is not a custom content tool: tools shipped with the product cannot be rewritten this way. Requires an authenticated back-end user with access to the roles, tools or tools-beta portlet, or the CMS Administrator role.'
+      operationId: updatePortlet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomPortletForm'
+      responses:
+        '200':
+          description: Updated; the entity carries the stored portlet id under "portlet"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityMapStringStringView'
+        '401':
+          description: Unauthorized - no authenticated back-end user, or the caller holds none of the roles, tools or tools-beta portlets and is not a CMS Administrator
+          content:
+            application/json: {}
+        '404':
+          description: No portlet has the given id, or it is a tool shipped with the product
+          content:
+            application/json: {}
+    post:
+      tags:
+      - Portlets
+      summary: Create a custom content tool
+      description: Creates a custom content tool that lists the given base types and/or content types. Requires an authenticated back-end user with access to the roles, tools or tools-beta portlet, or the CMS Administrator role.
+      operationId: saveNew
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomPortletForm'
+      responses:
+        '200':
+          description: Created; the entity carries the stored portlet id under "portlet"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityMapStringStringView'
+        '400':
+          description: Validation failure (missing name or view mode, unknown content type, ...)
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized - no authenticated back-end user, or the caller holds none of the roles, tools or tools-beta portlets and is not a CMS Administrator
+          content:
+            application/json: {}
+components:
+  schemas:
+    ErrorEntity:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
+        fieldName:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int32
+        perPage:
+          type: integer
+          format: int32
+        totalEntries:
+          type: integer
+          format: int64
+    ResponseEntityToolCatalogView:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntity'
+        entity:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolCatalogEntryView'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageEntity'
+        i18nMessagesMap:
+          type: object
+          additionalProperties:
+            type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ToolCatalogEntryView:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Portlet id, e.g. roles or c_press-releases
+          example: c_press-releases
+        title:
+          type: string
+          description: Title in the caller's language; falls back to the registered name, then to the id
+          example: Press Releases
+        isCustom:
+          type: boolean
+          description: 'True only for tools created through New Tool: registered in the database and not declared in the product''s portlet id registry. False for every shipped tool, Language Variables included'
+      description: One tool that can be placed in a navigation section
+    MessageEntity:
+      type: object
+      properties:
+        message:
+          type: string
+    ResponseEntityCustomToolView:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntity'
+        entity:
+          $ref: '#/components/schemas/CustomToolView'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageEntity'
+        i18nMessagesMap:
+          type: object
+          additionalProperties:
+            type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ResponseEntityMapStringStringView:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntity'
+        entity:
+          type: object
+          additionalProperties:
+            type: string
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageEntity'
+        i18nMessagesMap:
+          type: object
+          additionalProperties:
+            type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    CustomPortletForm:
+      type: object
+      properties:
+        portletId:
+          type: string
+        portletName:
+          type: string
+        baseTypes:
+          type: string
+        contentTypes:
+          type: string
+        dataViewMode:
+          type: string
+    CustomToolView:
+      type: object
+      properties:
+        portletId:
+          type: string
+          description: Stored id including the c_ prefix
+          example: c_press-releases
+        portletName:
+          type: string
+          description: Display name of the tool
+          example: Press Releases
+        baseTypes:
+          type: array
+          description: Base type names as stored (CONTENT, WIDGET, PERSONA, FILEASSET, HTMLPAGE, VANITY_URL, DOTASSET, FORM, KEY_VALUE); empty when none
+          items:
+            type: string
+            description: Base type names as stored (CONTENT, WIDGET, PERSONA, FILEASSET, HTMLPAGE, VANITY_URL, DOTASSET, FORM, KEY_VALUE); empty when none
+        contentTypes:
+          type: array
+          description: Content type variable names; empty when none
+          items:
+            type: string
+            description: Content type variable names; empty when none
+        dataViewMode:
+          type: string
+          description: list or card, as stored
+          example: card
+      description: Editable configuration of a custom content tool

@@ -1,0 +1,1556 @@
+openapi: 3.2.0
+info:
+  title: dotCMS REST AI API
+  version: '3'
+  description: AI-powered content generation and analysis endpoints
+servers:
+- url: /
+  description: dotCMS Server
+tags:
+- name: AI
+  description: AI-powered content generation and analysis endpoints
+paths:
+  /api/v1/ai/providers:
+    get:
+      tags:
+      - AI
+      summary: List dotAI provider configuration metadata
+      description: Returns, for every registered dotAI provider, the capabilities it supports (chat/embeddings/image) and the providerConfig fields each supported capability requires or accepts.
+      operationId: listAiProviders
+      responses:
+        '200':
+          description: Provider metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityAiProviderListView'
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json: {}
+  /api/v1/ai/providers/test/{capability}:
+    post:
+      tags:
+      - AI
+      summary: Test a dotAI provider connection
+      description: Builds the provider client for the given capability from the posted configuration and issues one minimal real request against the provider (a short chat reply, a one-line embedding, or a single test image). Masked credential fields ("*****") in the posted config are resolved against the real value already stored for siteId before testing. Returns success=false with a message on any validation or provider error rather than an HTTP error status, so the caller can always render the result.
+      operationId: testAiProviderConnection
+      parameters:
+      - name: capability
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        description: Provider config section to test
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Test executed — check the success field for the outcome
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEntityAiTestConnectionView'
+        '400':
+          description: Unknown capability or malformed request body
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json: {}
+        '403':
+          description: Forbidden - requires CMS admin, or access denied to site
+          content:
+            application/json: {}
+  /api/v1/ai/completions/config:
+    get:
+      tags:
+      - AI
+      summary: Get AI service configuration
+      description: Retrieves the current AI service configuration. Accepts an optional siteId query parameter (site identifier / UUID, or the literal SYSTEM_HOST). Hostname values are not supported — use the site identifier. When siteId is omitted or cannot be resolved, falls back to the site derived from the HTTP Host header.
+      operationId: getAiConfig
+      parameters:
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Configuration retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized - User not authenticated
+        '403':
+          description: Forbidden - User lacks permission for the requested site
+        '500':
+          description: Internal server error
+    put:
+      tags:
+      - AI
+      summary: Save AI provider configuration
+      description: Saves the providerConfig JSON for the target site. Accepts an optional siteId query parameter (site identifier / UUID, or the literal SYSTEM_HOST). Hostname values are not supported — use the site identifier. When siteId is omitted, saves to the site derived from the HTTP Host header. An unresolvable siteId returns 400. Credential fields set to "*****" are preserved from the existing stored configuration. Requires CMS admin.
+      operationId: saveAiConfig
+      parameters:
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Configuration saved successfully
+        '400':
+          description: Missing or invalid request body, or site not found
+        '403':
+          description: Forbidden - requires CMS admin or access denied to site
+        '500':
+          description: Internal server error
+  /api/v1/ai/completions/rawPrompt:
+    post:
+      tags:
+      - AI
+      summary: Generate AI completions from raw prompt
+      description: Processes raw prompts directly through the AI service without content preprocessing. Supports both streaming and non-streaming responses.
+      operationId: rawPrompt
+      requestBody:
+        description: Completion form with raw prompt and configuration
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CompletionsForm'
+      responses:
+        '200':
+          description: Raw completion generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request - Missing or invalid prompt
+        '401':
+          description: Unauthorized - User not authenticated
+        '500':
+          description: Internal server error
+  /api/v1/ai/completions:
+    post:
+      tags:
+      - AI
+      summary: Generate AI completions from content
+      description: Creates AI-powered content summaries and completions based on provided prompts. Supports both streaming and non-streaming responses.
+      operationId: summarizeFromContent
+      requestBody:
+        description: Completion form with prompt and configuration
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CompletionsForm'
+      responses:
+        '200':
+          description: Completion generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request - Missing or invalid prompt
+        '401':
+          description: Unauthorized - User not authenticated
+        '500':
+          description: Internal server error
+  /api/v1/ai/embeddings/count:
+    get:
+      tags:
+      - AI
+      operationId: count_1
+      parameters:
+      - name: site
+        in: query
+        schema:
+          type: string
+      - name: contentType
+        in: query
+        schema:
+          type: string
+      - name: indexName
+        in: query
+        schema:
+          type: string
+      - name: language
+        in: query
+        schema:
+          type: string
+      - name: identifier
+        in: query
+        schema:
+          type: string
+      - name: inode
+        in: query
+        schema:
+          type: string
+      - name: fieldVar
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Count 1
+      x-summary-source: derived
+    post:
+      tags:
+      - AI
+      operationId: count
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CompletionsForm'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Count
+      x-summary-source: derived
+  /api/v1/ai/embeddings:
+    post:
+      tags:
+      - AI
+      operationId: embed
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/EmbeddingsForm'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Embed
+      x-summary-source: derived
+    delete:
+      tags:
+      - AI
+      operationId: delete
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: object
+              properties:
+                asMap:
+                  type: object
+                  additionalProperties:
+                    type: object
+                empty:
+                  type: boolean
+              additionalProperties:
+                type: object
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Delete
+      x-summary-source: derived
+  /api/v1/ai/embeddings/db:
+    delete:
+      tags:
+      - AI
+      operationId: dropAndRecreateTables
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: object
+              properties:
+                asMap:
+                  type: object
+                  additionalProperties:
+                    type: object
+                empty:
+                  type: boolean
+              additionalProperties:
+                type: object
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Drop and recreate tables
+      x-summary-source: derived
+  /api/v1/ai/embeddings/indexCount:
+    get:
+      tags:
+      - AI
+      operationId: indexCount
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Index count
+      x-summary-source: derived
+  /api/v1/ai/embeddings/test:
+    get:
+      tags:
+      - AI
+      operationId: textResource
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Text resource
+      x-summary-source: derived
+  /api/v1/ai/image/generate:
+    get:
+      tags:
+      - AI
+      operationId: indexByInode_1
+      parameters:
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Index by inode 1
+      x-summary-source: derived
+    post:
+      tags:
+      - AI
+      operationId: handleImageRequest
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/AIImageRequestDTO'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Handle image request
+      x-summary-source: derived
+  /api/v1/ai/image/test:
+    get:
+      tags:
+      - AI
+      operationId: indexByInode
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Index by inode
+      x-summary-source: derived
+  /api/v1/ai/search/related:
+    get:
+      tags:
+      - AI
+      operationId: relatedByGet
+      parameters:
+      - name: language
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: identifier
+        in: query
+        schema:
+          type: string
+      - name: inode
+        in: query
+        schema:
+          type: string
+      - name: indexName
+        in: query
+        schema:
+          type: string
+      - name: fieldVar
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Related by get
+      x-summary-source: derived
+    post:
+      tags:
+      - AI
+      operationId: relatedByPost
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: object
+              properties:
+                asMap:
+                  type: object
+                  additionalProperties:
+                    type: object
+                empty:
+                  type: boolean
+              additionalProperties:
+                type: object
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Related by post
+      x-summary-source: derived
+  /api/v1/ai/search:
+    get:
+      tags:
+      - AI
+      operationId: searchByGet
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      - name: searchLimit
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 1000
+      - name: searchOffset
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: site
+        in: query
+        schema:
+          type: string
+      - name: contentType
+        in: query
+        schema:
+          type: string
+      - name: indexName
+        in: query
+        schema:
+          type: string
+          default: default
+      - name: threshold
+        in: query
+        schema:
+          type: number
+          format: float
+          default: 0.25
+      - name: stream
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - name: responseLength
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 1024
+      - name: operator
+        in: query
+        schema:
+          type: string
+          default: <=>
+      - name: language
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/octet-stream: {}
+            application/json: {}
+      summary: Search by get
+      x-summary-source: derived
+    post:
+      tags:
+      - AI
+      operationId: searchByPost
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CompletionsForm'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Search by post
+      x-summary-source: derived
+  /api/v1/ai/search/test:
+    get:
+      tags:
+      - AI
+      operationId: testResponse
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Test response
+      x-summary-source: derived
+  /api/v1/ai/text/generate:
+    get:
+      tags:
+      - AI
+      operationId: doGet
+      parameters:
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Do get
+      x-summary-source: derived
+    post:
+      tags:
+      - AI
+      operationId: doPost
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/CompletionsForm'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+      summary: Do post
+      x-summary-source: derived
+  /api/inference/v1/chat/completions:
+    post:
+      tags:
+      - AI
+      summary: Create a chat completion
+      description: 'Runs one chat completion against the model the resolved site has configured, in the OpenAI-compatible request and response shape. Set "stream": true to receive the answer as server-sent events, each frame a chat.completion.chunk, closing with data: [DONE] — a stream that failed ends on an error frame and never carries that marker. The model field is required and must be one the site has configured; there is no implicit default. Every response reports the serving site in the X-dotCMS-Resolved-Site header.'
+      operationId: createChatCompletion
+      parameters:
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        description: The completion to run
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequestView'
+      responses:
+        '200':
+          description: The completion, or the event stream when stream was requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionView'
+        '400':
+          description: Malformed request, or one asking for something unsupported
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '403':
+          description: Forbidden - the caller cannot read the requested site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '404':
+          description: The requested model is not configured for the resolved site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '429':
+          description: Too many streamed completions are already in flight on this node
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '502':
+          description: The model provider failed to complete the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+  /api/inference/v1/embeddings:
+    post:
+      tags:
+      - AI
+      summary: Create embeddings
+      description: Embeds text against the model the resolved site has configured for embeddings, in the OpenAI-compatible request and response shape. The input field accepts either a single string or an array of strings embedded as one batch; the response is always a list with one entry per input, each carrying the index of the input it corresponds to. An absent, null or empty input is refused, as is a blank or whitespace-only string wherever it appears, and every element of an array must be a string — arrays of token ids are not supported. The model field is required and is validated against the site's embeddings configuration, not its chat models; there is no implicit default. Every response reports the serving site in the X-dotCMS-Resolved-Site header.
+      operationId: createEmbeddings
+      parameters:
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        description: What to embed
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddingsRequestView'
+      responses:
+        '200':
+          description: The vectors, one per input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddingListView'
+        '400':
+          description: Malformed request, or one asking for something unsupported
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '403':
+          description: Forbidden - the caller cannot read the requested site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '404':
+          description: The requested model is not configured for the resolved site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '502':
+          description: The model provider failed to complete the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+  /api/inference/v1/images/generations:
+    post:
+      tags:
+      - AI
+      summary: Generate images
+      description: 'Generates images against the model the resolved site has configured for images, in the OpenAI-compatible request and response shape. Every image is returned inline as b64_json: no hosted, separately-addressable artifact is created, and no url is ever returned. Both model and prompt are required, and model is validated against the site''s image configuration rather than its chat or embeddings models; there is no implicit default. The n field is honored — omitting it means one image. A value below 1, a value above the configured maximum, or any value above 1 on a site whose image model can only produce one, is refused with a 400 naming the field. The size field is passed through to the provider as a WIDTHxHEIGHT string; where the site carries an image size setting the caller''s value wins and the site''s is the default. Every response reports the serving site in the X-dotCMS-Resolved-Site header.'
+      operationId: createImageGeneration
+      parameters:
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        description: What to generate
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageGenerationRequestView'
+      responses:
+        '200':
+          description: The generated images, each inline as base64
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageGenerationView'
+        '400':
+          description: Malformed request, or one asking for something unsupported
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '403':
+          description: Forbidden - the caller cannot read the requested site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '404':
+          description: The requested model is not configured for the resolved site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '502':
+          description: The model provider failed to complete the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+  /api/inference/v1/models:
+    get:
+      tags:
+      - AI
+      summary: List the models this site has configured
+      description: 'Returns the models the resolved site has configured for chat, embeddings and image generation, including every entry of a chat fallback chain, in configured order with chat first — the first entry is the site''s primary chat model. Each entry reports in "type" which operation accepts it: "chat", "embedding" or "image". A name configured for more than one operation is listed once, with the type of the first of those in that order. The list is exactly the set of values this family accepts as "model": there is no implicit default and no reserved alias, and nothing synthetic is added. No model provider is contacted. A site with no AI configuration, on an instance with none at the system level either, returns an empty data array rather than another site''s models. Every response reports the serving site in the X-dotCMS-Resolved-Site header.'
+      operationId: listInferenceModels
+      parameters:
+      - name: siteId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The configured models, possibly none
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelListView'
+        '400':
+          description: The requested site could not be resolved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+        '403':
+          description: Forbidden - the caller cannot read the requested site
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InferenceErrorView'
+components:
+  schemas:
+    ContainerUUID:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: 'Reference to the Container placed in this layout slot. Accepts any ONE of three forms:
+
+            - a Container **identifier** for a database-backed Container — a full UUID (''2cef9f97-5faf-4d18-8c9b-df22b6c17111'') or a dotCMS ''shorty'' (short) id; or
+
+            - a **file path** for a file-based (Container-as-File) Container — host-qualified (''//demo.dotcms.com/application/containers/default/'') or host-relative (''/application/containers/default/'', resolved against the current site); or
+
+            - the literal string ''SYSTEM_CONTAINER'' for the built-in system Container.
+
+            The server chooses the resolution strategy by inspecting the value: a string containing ''/application/containers'' is resolved as a file-path Container, ''SYSTEM_CONTAINER'' resolves to the system Container, and anything else is looked up as a database identifier. A value that does not resolve to an existing Container produces no container at render time (the slot renders empty) rather than falling back to another Container — pass the exact identifier or the full host-qualified path.'
+          example: //demo.dotcms.com/application/containers/default/
+        uuid:
+          type: string
+        historyUUIDs:
+          type: array
+          items:
+            type: string
+    ImageGenerationRequestView:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Model id, as configured for this site's images
+          example: dall-e-3
+        prompt:
+          type: string
+          description: What to generate
+          example: A cat in a hammock
+        n:
+          type: integer
+          description: Number of images; at least 1, defaults to 1
+          format: int32
+          example: 1
+        size:
+          type: string
+          description: Image size
+          example: 1024x1024
+      description: Image generation request in the OpenAI-compatible shape
+    ProviderMetadata:
+      type: object
+      properties:
+        provider:
+          type: string
+        supportedCapabilities:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - CHAT
+            - EMBEDDINGS
+            - IMAGE
+        fields:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProviderField'
+    EmbeddingView:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Object type
+          example: embedding
+        index:
+          type: integer
+          description: Position of the input this vector embeds
+          format: int32
+        embedding:
+          type: array
+          description: The vector
+          items:
+            type: number
+            description: The vector
+            format: float
+      description: One embedding
+    AIImageRequestDTO:
+      type: object
+      properties:
+        prompt:
+          type: string
+        numberOfImages:
+          type: integer
+          format: int32
+        size:
+          type: string
+        model:
+          type: string
+    ToolView:
+      type: object
+      properties:
+        type:
+          type: string
+        function:
+          $ref: '#/components/schemas/FunctionDefView'
+      description: Tools the model may call
+    ChatCompletionRequestView:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Model id, as listed by GET /models
+          example: gpt-4o
+        messages:
+          type: array
+          description: The conversation, oldest first
+          items:
+            $ref: '#/components/schemas/MessageView'
+        tools:
+          type: array
+          description: Tools the model may call
+          items:
+            $ref: '#/components/schemas/ToolView'
+        tool_choice:
+          $ref: '#/components/schemas/JsonNode'
+        response_format:
+          $ref: '#/components/schemas/JsonNode'
+        stream:
+          type: boolean
+          description: Stream the answer as server-sent events
+        stream_options:
+          $ref: '#/components/schemas/StreamOptionsView'
+        temperature:
+          type: number
+          description: Sampling temperature
+          format: double
+        max_tokens:
+          type: integer
+          description: Maximum tokens to generate
+          format: int32
+        top_p:
+          type: number
+          description: Nucleus sampling
+          format: double
+        stop:
+          type: array
+          description: Stop sequences
+          items:
+            type: string
+            description: Stop sequences
+        n:
+          type: integer
+          description: Number of choices; not supported
+          format: int32
+      description: Chat completion request in the OpenAI-compatible shape
+    ErrorEntity:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
+        fieldName:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int32
+        perPage:
+          type: integer
+          format: int32
+        totalEntries:
+          type: integer
+          format: int64
+    FunctionCallView:
+      type: object
+      properties:
+        name:
+          type: string
+        arguments:
+          type: string
+    CompletionsForm:
+      type: object
+      properties:
+        prompt:
+          type: string
+        searchLimit:
+          maximum: 1000
+          minimum: 1
+          type: integer
+          format: int32
+        searchOffset:
+          minimum: 0
+          type: integer
+          format: int32
+        responseLengthTokens:
+          minimum: 128
+          type: integer
+          format: int32
+        language:
+          type: integer
+          format: int64
+        stream:
+          type: boolean
+        fieldVar:
+          type: string
+        indexName:
+          type: string
+        contentType:
+          type: array
+          items:
+            type: string
+        threshold:
+          type: number
+          format: float
+        temperature:
+          maximum: 2
+          minimum: 0
+          type: number
+          format: float
+        model:
+          type: string
+        operator:
+          type: string
+        site:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+        responseFormat:
+          type: object
+          additionalProperties:
+            type: object
+    TemplateLayoutColumn:
+      type: object
+      properties:
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContainerUUID'
+        widthPercent:
+          type: integer
+          format: int32
+        leftOffset:
+          type: integer
+          format: int32
+        styleClass:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+        preview:
+          type: boolean
+        width:
+          type: integer
+          format: int32
+        left:
+          type: integer
+          format: int32
+    FunctionDefView:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        parameters:
+          $ref: '#/components/schemas/JsonNode'
+    JsonNode:
+      type: object
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        roleKey:
+          type: string
+        parent:
+          type: string
+        editPermissions:
+          type: boolean
+        editUsers:
+          type: boolean
+        editLayouts:
+          type: boolean
+        locked:
+          type: boolean
+        system:
+          type: boolean
+        roleChildren:
+          type: array
+          items:
+            type: string
+        fqn:
+          type: string
+        dbfqn:
+          type: string
+        user:
+          type: boolean
+    InferenceErrorView:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/Body'
+      description: Error response in the OpenAI-compatible error shape
+    User:
+      type: object
+      properties:
+        modificationDate:
+          type: string
+          format: date-time
+        companyId:
+          type: string
+        resolution:
+          type: string
+        refreshRate:
+          type: string
+        defaultUser:
+          type: boolean
+        recipientName:
+          type: string
+        actualCompanyId:
+          type: string
+        female:
+          type: boolean
+        passwordExpired:
+          type: boolean
+        recipientId:
+          type: string
+        userRole:
+          $ref: '#/components/schemas/Role'
+        languageId:
+          type: string
+        timeZoneId:
+          type: string
+        anonymousUser:
+          type: boolean
+        recipientInternetAddress:
+          type: string
+        multipleRecipients:
+          type: boolean
+        timeZone:
+          type: object
+          properties:
+            id:
+              type: string
+            rawOffset:
+              type: integer
+              format: int32
+            dstsavings:
+              type: integer
+              format: int32
+            displayName:
+              type: string
+        locale:
+          type: object
+          properties:
+            script:
+              type: string
+            variant:
+              type: string
+            unicodeLocaleAttributes:
+              uniqueItems: true
+              type: array
+              items:
+                type: string
+            unicodeLocaleKeys:
+              uniqueItems: true
+              type: array
+              items:
+                type: string
+            displayLanguage:
+              type: string
+            displayScript:
+              type: string
+            displayCountry:
+              type: string
+            displayVariant:
+              type: string
+            displayName:
+              type: string
+            country:
+              type: string
+            extensionKeys:
+              uniqueItems: true
+              type: array
+              items:
+                type: string
+            iso3Language:
+              type: string
+            iso3Country:
+              type: string
+            language:
+              type: string
+        fullName:
+          type: string
+        recipientAddress:
+          type: string
+        male:
+          type: boolean
+        skinId:
+          type: string
+        loginDate:
+          type: string
+          format: date-time
+        loginIP:
+          type: string
+        lastLoginDate:
+          type: string
+          format: date-time
+        lastLoginIP:
+          type: string
+        createDate:
+          type: string
+          format: date-time
+        deleteDate:
+          type: string
+          format: date-time
+        passwordReset:
+          type: boolean
+        smsId:
+          type: string
+        aimId:
+          type: string
+        icqId:
+          type: string
+        msnId:
+          type: string
+        ymId:
+          type: string
+        favoriteFood:
+          type: string
+        favoriteMovie:
+          type: string
+        favoriteMusic:
+          type: string
+        dottedSkins:
+          type: boolean
+        roundedSkins:
+          type: boolean
+        greeting:
+          type: string
+        layoutIds:
+          type: string
+        comments:
+          type: string
+        deleteInProgress:
+          type: boolean
+        userId:
+          type: string
+        emailAddress:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        active:
+          type: boolean
+        middleName:
+          type: string
+        nickName:
+          type: string
+        birthday:
+          type: string
+          format: date-time
+        additionalInfo:
+          type: object
+          additionalProperties:
+            type: object
+        passwordExpirationDate:
+          type: string
+          format: date-time
+        failedLoginAttempts:
+          type: integer
+          format: int32
+        agreedToTermsOfUse:
+          type: boolean
+        passwordEncrypted:
+          type: boolean
+        favoriteActivity:
+          type: string
+        favoriteBibleVerse:
+          type: string
+        password:
+          type: string
+        modified:
+          type: boolean
+        new:
+          type: boolean
+    ToolCallView:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        function:
+          $ref: '#/components/schemas/FunctionCallView'
+    EmbeddingListView:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Object type
+          example: list
+        model:
+          type: string
+          description: Model that served the request
+          example: text-embedding-3-small
+        data:
+          type: array
+          description: One entry per input
+          items:
+            $ref: '#/components/schemas/EmbeddingView'
+        usage:
+          $ref: '#/components/schemas/UsageView'
+      description: Embeddings response in the OpenAI-compatible shape
+    ChatCompletionView:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Completion id
+          example: chatcmpl-8f3a
+        object:
+          type: string
+          description: Object type
+          example: chat.completion
+        created:
+          type: integer
+          description: Epoch seconds
+          format: int64
+        model:
+          type: string
+          description: Model that served the request
+          example: gpt-4o
+        choices:
+          type: array
+          description: The answers
+          items:
+            $ref: '#/components/schemas/ChoiceView'
+        usage:
+          $ref: '#/components/schemas/UsageView'
+      description: Chat completion response in the OpenAI-compatible shape
+    Body:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateLayoutRow'
+    MessageView:
+      type: object
+      properties:
+        role:
+          type: string
+        content:
+          $ref: '#/components/schemas/JsonNode'
+        tool_calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolCallView'
+        tool_call_id:
+          type: string
+        name:
+          type: string
+      description: The conversation, oldest first
+    ModelListView:
+      type: object
+      properties:
+        object:
+          type: string
+          description: Object type
+          example: list
+        data:
+          type: array
+          description: The configured models, primary first
+          items:
+            $ref: '#/components/schemas/ModelView'
+      description: Model listing in the OpenAI-compatible shape
+    TemplateLayoutRow:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateLayoutColumn'
+        styleClass:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: object
+    StreamOptionsView:
+      type: object
+      properties:
+        include_usage:
+          type: boolean
+      description: Streaming options
+    ChoiceView:
+      type: object
+      properties:
+        index:
+          type: integer
+          format: int32
+        message:
+          $ref: '#/components/schemas/MessageView'
+        finish_reason:
+          type: string
+      description: The answers
+    MessageEntity:
+      type: object
+      properties:
+        message:
+          type: string
+    EmbeddingsForm:
+      type: object
+      properties:
+        query:
+          type: string
+        limit:
+          maximum: 1000
+          minimum: 1
+          type: integer
+          format: int32
+        offset:
+          minimum: 0
+          type: integer
+          format: int32
+        indexName:
+          type: string
+        model:
+          type: string
+        velocityTemplate:
+          type: string
+        fields:
+          type: array
+          items:
+            type: string
+        userId:
+          type: string
+        requestHostId:
+          type: string
+    EmbeddingsRequestView:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Model id, as configured for this site's embeddings
+          example: text-embedding-3-small
+        input:
+          $ref: '#/components/schemas/JsonNode'
+      description: Embeddings request in the OpenAI-compatible shape
+    ProviderField:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STRING
+          - NUMBER
+          - SECRET
+        required:
+          type: boolean
+        hint:
+          type: string
+        requiredUnless:
+          type: string
+    TestConnectionResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+    ImageGenerationView:
+      type: object
+      properties:
+        created:
+          type: integer
+          description: Epoch seconds
+          format: int64
+        data:
+          type: array
+          description: The generated images
+          items:
+            $ref: '#/components/schemas/ImageView'
+      description: Image generation response in the OpenAI-compatible shape
+    ResponseEntityAiTestConnectionView:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntity'
+        entity:
+          $ref: '#/components/schemas/TestConnectionResult'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageEntity'
+        i18nMessagesMap:
+          type: object
+          additionalProperties:
+            type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ImageView:
+      type: object
+      properties:
+        b64_json:
+          type: string
+          description: The image bytes, base64 encoded
+        revised_prompt:
+          type: string
+          description: The prompt the provider actually used
+      description: One generated image, delivered inline as base64
+    ModelView:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Model id
+          example: gpt-4o
+        object:
+          type: string
+          description: Object type
+          example: model
+        created:
+          type: integer
+          description: Epoch seconds
+          format: int64
+        owned_by:
+          type: string
+          description: Owner
+          example: dotcms
+        type:
+          type: string
+          description: 'The operation this model serves: chat completions, embeddings or image generation. Taken from the section of the site''s configuration the model is listed in; a model listed in more than one section reports the first, in the order chat, embeddings, image. Any other operation refuses the model with a 404 unless the site configured it for that operation too.'
+          example: chat
+          enum:
+          - chat
+          - embedding
+          - image
+      description: One configured model
+    ResponseEntityAiProviderListView:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntity'
+        entity:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProviderMetadata'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageEntity'
+        i18nMessagesMap:
+          type: object
+          additionalProperties:
+            type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    UsageView:
+      type: object
+      properties:
+        prompt_tokens:
+          type: integer
+          description: Tokens across every input
+          format: int32
+        total_tokens:
+          type: integer
+          description: Total tokens
+          format: int32
+      description: Tokens consumed

@@ -133,94 +133,1099 @@ apis:
     url: https://www.developer.co-operativebank.co.uk/apis/cbpii/endpoints-and-errors/
   - type: Documentation
     url: https://www.developer.co-operativebank.co.uk/apis/general-specifications/
-- aid: co-operative-bank:co-operative-bank-atm-api
-  name: The Co-operative Bank ATM API
-  description: Endpoint for getting ATM data
+- aid: co-operative-bank:co-operative-bank-accessibility-agent-api
+  name: The Co-operative Bank Accessibility Agent API
+  description: Streaming a11y-fix agent proxy
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - ATM
+  - Accessibility Agent
   properties:
   - type: OpenAPI
-    url: openapi/co-operative-bank-atm-api-openapi.yml
+    url: openapi/co-operative-bank-accessibility-agent-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
-- aid: co-operative-bank:co-operative-bank-bca-api
-  name: The Co-operative Bank BCA API
-  description: Endpoint for getting Business Current Account data
+- aid: co-operative-bank:co-operative-bank-accessibility-checker-api
+  name: The Co-operative Bank Accessibility Checker API
+  description: Endpoints that perform operations related to validating accessibility in content.
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - BCA
+  - Accessibility Checker
   properties:
   - type: OpenAPI
-    url: openapi/co-operative-bank-bca-api-openapi.yml
+    url: openapi/co-operative-bank-accessibility-checker-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
-- aid: co-operative-bank:co-operative-bank-branch-api
-  name: The Co-operative Bank Branch API
-  description: Endpoint for getting Branch data
+- aid: co-operative-bank:co-operative-bank-administration-api
+  name: The Co-operative Bank Administration API
+  description: System administration and management tools
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - Branch
+  - Administration
   properties:
   - type: OpenAPI
-    url: openapi/co-operative-bank-branch-api-openapi.yml
+    url: openapi/co-operative-bank-administration-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
-- aid: co-operative-bank:co-operative-bank-ccc-api
-  name: The Co-operative Bank CCC API
-  description: Endpoint for getting Commercial Credit Card data
+- aid: co-operative-bank:co-operative-bank-ai-api
+  name: The Co-operative Bank AI API
+  description: AI-powered content generation and analysis endpoints
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - CCC
+  - AI
   properties:
   - type: OpenAPI
-    url: openapi/co-operative-bank-ccc-api-openapi.yml
+    url: openapi/co-operative-bank-ai-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
-- aid: co-operative-bank:co-operative-bank-pca-api
-  name: The Co-operative Bank PCA API
-  description: Endpoint for getting Personal Current Account data
+- aid: co-operative-bank:co-operative-bank-announcements-api
+  name: The Co-operative Bank Announcements API
+  description: System announcements and notifications
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - PCA
+  - Announcements
   properties:
   - type: OpenAPI
-    url: openapi/co-operative-bank-pca-api-openapi.yml
+    url: openapi/co-operative-bank-announcements-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
-- aid: co-operative-bank:co-operative-bank-sme-api
-  name: The Co-operative Bank SME API
-  description: Endpoint for getting Unsecured SME Loan data
+- aid: co-operative-bank:co-operative-bank-api-token-api
+  name: The Co-operative Bank API Token API
+  description: API token management and authentication
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
-  - Small Business
-  tags_raw:
-  - SME
+  - API Token
   properties:
   - type: OpenAPI
-    url: openapi/co-operative-bank-sme-api-openapi.yml
+    url: openapi/co-operative-bank-api-token-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-apps-api
+  name: The Co-operative Bank Apps API
+  description: Third-party application integration and configuration
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Apps
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-apps-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-authentication-api
+  name: The Co-operative Bank Authentication API
+  description: The Authentication API from The Co-operative Bank — 6 operation(s) for authentication.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-browser-tree-api
+  name: The Co-operative Bank Browser Tree API
+  description: File and folder browser tree operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Browser Tree
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-browser-tree-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-bulk-upload-api
+  name: The Co-operative Bank Bulk Upload API
+  description: Creating several assets in one background run
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Bulk Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-bulk-upload-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-bundle-api
+  name: The Co-operative Bank Bundle API
+  description: Content bundle management and deployment
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Bundle
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-bundle-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-cache-management-api
+  name: The Co-operative Bank Cache Management API
+  description: Cache provider management and operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Cache Management
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-cache-management-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-categories-api
+  name: The Co-operative Bank Categories API
+  description: Content categorization and taxonomy
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-categories-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-cluster-management-api
+  name: The Co-operative Bank Cluster Management API
+  description: Cluster nodes and distributed system management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Cluster Management
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-cluster-management-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-containers-api
+  name: The Co-operative Bank Containers API
+  description: Endpoints for managing Container objects and their content
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Containers
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-containers-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-analytics-api
+  name: The Co-operative Bank Content Analytics API
+  description: Proxy endpoints that forward analytics requests to the dot-ca-event-manager service.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-api
+  name: The Co-operative Bank Content API
+  description: Endpoints for managing content and contentlets - the core data objects in dotCMS
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-delivery-api
+  name: The Co-operative Bank Content Delivery API
+  description: Content retrieval and manipulation endpoints
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content Delivery
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-delivery-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-import-api
+  name: The Co-operative Bank Content Import API
+  description: The Content Import API from The Co-operative Bank — 11 operation(s) for content import.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content Import
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-import-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-report-api
+  name: The Co-operative Bank Content Report API
+  description: Content reporting and analytics
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content Report
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-report-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-type-api
+  name: The Co-operative Bank Content Type API
+  description: Content type definitions and schema management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content Type
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-type-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-content-type-field-api
+  name: The Co-operative Bank Content Type Field API
+  description: Content type field definitions and configuration
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Content Type Field
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-content-type-field-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-data-integrity-api
+  name: The Co-operative Bank Data Integrity API
+  description: Data integrity checking and conflict resolution
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Data Integrity
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-data-integrity-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-dotauth-api
+  name: The Co-operative Bank Dot Auth API
+  description: >-
+    OAuth/OIDC and SAML authentication: per-site configuration (SYSTEM_HOST is the global default) and
+    headless OIDC token exchange
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - dotAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-dotauth-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-elasticsearch-content-search-api
+  name: The Co-operative Bank Elasticsearch Content Search API
+  description: Backend Elasticsearch search endpoints for portlet context
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Elasticsearch Content Search
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-elasticsearch-content-search-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-environment-api
+  name: The Co-operative Bank Environment API
+  description: Publishing environment management and configuration
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Environment
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-environment-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-experiment-api
+  name: The Co-operative Bank Experiment API
+  description: The Experiment API from The Co-operative Bank — 15 operation(s) for experiment.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Experiment
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-experiment-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-file-assets-api
+  name: The Co-operative Bank File Assets API
+  description: File asset management and download operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - File Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-file-assets-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-folders-api
+  name: The Co-operative Bank Folders API
+  description: Endpoints for managing folder structure and organization
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Folders
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-folders-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-forms-api
+  name: The Co-operative Bank Forms API
+  description: Form management and processing
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-forms-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-getpagescontenttypes-api
+  name: The Co-operative Bank Get Pages Content Types API
+  description: Returns the content types valid for a page based on the container/types on the layout
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - getPagesContentTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-getpagescontenttypes-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-health-api
+  name: The Co-operative Bank Health API
+  description: Health management and monitoring endpoints for administrative dashboards
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-health-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-internationalization-api
+  name: The Co-operative Bank Internationalization API
+  description: Language management and localization
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Internationalization
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-internationalization-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-javascript-api
+  name: The Co-operative Bank JavaScript API
+  description: JavaScript execution and server-side scripting
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - JavaScript
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-javascript-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-job-queue-api
+  name: The Co-operative Bank Job Queue API
+  description: Endpoints for managing background jobs and job queues
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Job Queue
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-job-queue-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-language-api
+  name: The Co-operative Bank Language API
+  description: Language configuration and management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Language
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-language-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-layout-api
+  name: The Co-operative Bank Layout API
+  description: The Layout API from The Co-operative Bank — 1 operation(s) for layout.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Layout
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-layout-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-license-api
+  name: The Co-operative Bank License API
+  description: License management and validation
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - License
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-license-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-maintenance-api
+  name: The Co-operative Bank Maintenance API
+  description: System maintenance and administration operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Maintenance
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-maintenance-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-navigation-api
+  name: The Co-operative Bank Navigation API
+  description: Site navigation tree endpoints
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Navigation
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-navigation-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-notifications-api
+  name: The Co-operative Bank Notifications API
+  description: User notifications and alerts management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-osgi-plugins-api
+  name: The Co-operative Bank OSGi Plugins API
+  description: OSGi plugin management and dynamic deployment
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - OSGi Plugins
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-osgi-plugins-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-page-api
+  name: The Co-operative Bank Page API
+  description: Page rendering, layout management, and content operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Page
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-page-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-permissions-api
+  name: The Co-operative Bank Permissions API
+  description: Permission management and access control
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-personalization-api
+  name: The Co-operative Bank Personalization API
+  description: Content personalization and persona management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Personalization
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-personalization-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-personas-api
+  name: The Co-operative Bank Personas API
+  description: Content persona management and targeting
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Personas
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-personas-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-portlets-api
+  name: The Co-operative Bank Portlets API
+  description: Portlet management and administration
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Portlets
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-portlets-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-publishing-api
+  name: The Co-operative Bank Publishing API
+  description: Push publishing job management endpoints
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Publishing
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-publishing-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-relationships-api
+  name: The Co-operative Bank Relationships API
+  description: Content relationship management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Relationships
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-relationships-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-roles-api
+  name: The Co-operative Bank Roles API
+  description: User role and permission management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-roles-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-rules-engine-api
+  name: The Co-operative Bank Rules Engine API
+  description: Business rules and conditional logic management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Rules Engine
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-rules-engine-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-saml-authentication-api
+  name: The Co-operative Bank SAML Authentication API
+  description: SAML SSO authentication and integration
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - SAML Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-saml-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-search-index-api
+  name: The Co-operative Bank Search Index API
+  description: Elasticsearch index management and operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Search Index
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-search-index-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-site-api
+  name: The Co-operative Bank Site API
+  description: Site management, lifecycle, and configuration endpoints
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Site
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-site-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-system-api
+  name: The Co-operative Bank System API
+  description: System-level operations and Redis management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-system-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-system-configuration-api
+  name: The Co-operative Bank System Configuration API
+  description: System configuration and company settings
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - System Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-system-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-system-logging-api
+  name: The Co-operative Bank System Logging API
+  description: System logging configuration and management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - System Logging
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-system-logging-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-system-monitoring-api
+  name: The Co-operative Bank System Monitoring API
+  description: System monitoring and health checks
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - System Monitoring
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-system-monitoring-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-system-storage-api
+  name: The Co-operative Bank System Storage API
+  description: Storage providers and data replication management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - System Storage
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-system-storage-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-tag-v1-api
+  name: The Co-operative Bank Tag (v1) API
+  description: Legacy tag management endpoints (deprecated - use v2 TagResource instead)
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Tag (v1)
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-tag-v1-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-tags-api
+  name: The Co-operative Bank Tags API
+  description: Content tagging and labeling
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-tags-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-taillog-api
+  name: The Co-operative Bank Tail Log API
+  description: Server log file monitoring and real-time viewing
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - TailLog
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-taillog-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-template-api
+  name: The Co-operative Bank Template API
+  description: Template CRUD, publish, archive, and layout management endpoints
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Template
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-template-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-templates-api
+  name: The Co-operative Bank Templates API
+  description: Template design and management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-templates-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-temporary-files-api
+  name: The Co-operative Bank Temporary Files API
+  description: Temporary file upload and management for content creation
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Temporary Files
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-temporary-files-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-testresource-api
+  name: The Co-operative Bank Test Resource API
+  description: The TestResource API from The Co-operative Bank — 2 operation(s) for testresource.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - TestResource
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-testresource-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-theme-api
+  name: The Co-operative Bank Theme API
+  description: Theme browsing and management
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Theme
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-theme-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-usage-api
+  name: The Co-operative Bank Usage API
+  description: Provides business intelligence metrics for dashboard usage
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Usage
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-usage-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-users-api
+  name: The Co-operative Bank Users API
+  description: User account management and administration
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-users-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-variants-api
+  name: The Co-operative Bank Variants API
+  description: Endpoints for managing content variants
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Variants
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-variants-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-web-assets-api
+  name: The Co-operative Bank Web Assets API
+  description: Web asset management and operations
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Web Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-web-assets-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-widgets-api
+  name: The Co-operative Bank Widgets API
+  description: Widget development and rendering
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Widgets
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-widgets-api-openapi.yml
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: APIReference
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/atmlocator/atm-locator.html
+- aid: co-operative-bank:co-operative-bank-workflow-api
+  name: The Co-operative Bank Workflow API
+  description: Endpoints that perform operations related to workflows.
+  humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
+  baseURL: >-
+    https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
+  tags:
+  - Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/co-operative-bank-workflow-api-openapi.yml
   - type: Documentation
     url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   - type: APIReference
