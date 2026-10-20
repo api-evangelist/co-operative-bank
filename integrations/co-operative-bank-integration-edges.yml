@@ -33,4 +33,24 @@ edges:
     api_families: null
     detected_by: sweep-standard-registers.py
     detected: '2026-10-14'
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/co-operative-bank/blob/main/openapi/co-operative-bank-ai-api-openapi.yml#L563
+  contract_reference:
+    repo: co-operative-bank
+    spec_file: co-operative-bank-ai-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'co-operative-bank declares OpenAI compatibility: ''description: ''Runs one chat completion against the
+      model the resolved site has configured, in the OpenAI-compatible request and response shape. Set "stream":
+      tr'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-19'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-19'
 templates: []
