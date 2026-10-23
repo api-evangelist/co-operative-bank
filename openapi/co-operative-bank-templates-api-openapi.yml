@@ -972,3 +972,9 @@ components:
           description: Full, multi-line engine output for the error, including the complete grammar-token list for parse errors. Intended for human display; omitted when it adds nothing beyond `message`.
           example: "Encountered \"<EOF>\" at line 6, column 39\nWas expecting one of:\n    \"[\" ...\n    \"(\" ..."
       description: A single Velocity evaluation error, structured so an automated caller can locate and fix the offending code without parsing a stack trace.
+x-provenance:
+  method: harvested
+  publisher: The Co-operative Bank
+  source: https://www.developer.co-operativebank.co.uk/api/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

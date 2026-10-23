@@ -838,3 +838,9 @@ components:
           description: Navigation bar logo path (dotAsset path starting with /dA, Enterprise only). Cleared if omitted.
           example: /dA/abc123/nav-logo.png
       description: Company basic information and branding settings
+x-provenance:
+  method: harvested
+  publisher: The Co-operative Bank
+  source: https://www.developer.co-operativebank.co.uk/api/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

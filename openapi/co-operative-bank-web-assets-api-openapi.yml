@@ -653,3 +653,9 @@ components:
           type: string
           description: Full path to the asset (file) to be deleted permanently
           example: //demo.dotcms.com/uploads/old-document.pdf
+x-provenance:
+  method: harvested
+  publisher: The Co-operative Bank
+  source: https://www.developer.co-operativebank.co.uk/api/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
