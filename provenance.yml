@@ -36,43 +36,7 @@ artifacts:
   integrations/co-operative-bank-integration-edges.yml:
     method: searched
     evidence: declared in the artifact
-  kin/checks-2026-10-11T110117.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-12T062655.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-12T080032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-12T204651.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-12T221936.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-13T214537.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-14T064754.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-14T210656.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-14T225847.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-15T211329.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-15T230249.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-16T210549.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-16T225339.yml:
+  kin/checks-2026-10-17T182844.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-17T211151.yml:
@@ -132,7 +96,22 @@ artifacts:
   kin/score-2026-10-03T024842.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-04T202412.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-04T225258.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-09T213714.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-17T153854.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-17T182844.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   lifecycle/co-operative-bank-lifecycle.yml:
@@ -158,8 +137,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-announcements-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-api-token-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -170,8 +149,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-browser-tree-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-bulk-upload-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -185,8 +164,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-cluster-management-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-containers-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -212,8 +191,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-data-integrity-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-dotauth-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -233,8 +212,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-forms-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-getpagescontenttypes-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -251,11 +230,11 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-language-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-layout-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-license-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -263,11 +242,11 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-navigation-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-notifications-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-osgi-plugins-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -281,8 +260,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-personas-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-portlets-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -290,8 +269,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-relationships-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-roles-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -314,14 +293,14 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-system-logging-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-system-monitoring-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-system-storage-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-tag-v1-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -329,8 +308,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-taillog-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-template-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -341,14 +320,14 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-testresource-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-theme-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-usage-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-users-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -359,8 +338,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/co-operative-bank-widgets-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: harvested
+    evidence: declared in the artifact
   openapi/co-operative-bank-workflow-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)

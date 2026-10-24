@@ -185,6 +185,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - Artificial Intelligence
+  tags_raw:
   - AI
   properties:
   - type: OpenAPI
@@ -230,6 +232,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - Application
+  tags_raw:
   - Apps
   properties:
   - type: OpenAPI
@@ -486,7 +490,8 @@ apis:
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
-  tags:
+  tags: []
+  tags_raw:
   - dotAuth
   properties:
   - type: OpenAPI
@@ -591,7 +596,8 @@ apis:
   humanURL: https://www.developer.co-operativebank.co.uk/apis/aisp/
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
-  tags:
+  tags: []
+  tags_raw:
   - getPagesContentTypes
   properties:
   - type: OpenAPI
@@ -742,6 +748,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -1072,6 +1080,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - Templates
+  tags_raw:
   - Template
   properties:
   - type: OpenAPI
@@ -1162,6 +1172,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -1222,6 +1234,8 @@ apis:
   baseURL: >-
     https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp
   tags:
+  - Workflows
+  tags_raw:
   - Workflow
   properties:
   - type: OpenAPI

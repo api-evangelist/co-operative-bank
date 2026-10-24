@@ -5631,3 +5631,9 @@ x-provenance:
   source: https://www.developer.co-operativebank.co.uk/api/openapi.json
   note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
     stamped by stamp-openapi-provenance.py (roadmap#793)
+x-provenance:
+  method: harvested
+  publisher: The Co-operative Bank
+  source: https://www.developer.co-operativebank.co.uk/api/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
