@@ -1,4 +1,4 @@
-# The Co-operative Bank (co-operative-bank)
+# The Co-operative Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,116 +64,126 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Co-operative Bank plc is a UK high-street retail and commercial bank, headquartered in Manchester and long known for its customer-led ethical banking policy. In January 2025 it completed its acquisition by Coventry Building Society, becoming part of the member-owned Coventry Building Society Group; it also operates the online-only "smile" brand. It is authorised by the PRA and regulated by the FCA and PRA, and is an FCA-authorised ASPSP under PSD2 and the UK Open Banking regime. It is not one of the nine CMA-mandated banks (CMA9), but implements the Open Banking Implementation Entity (OBIE) Read/Write API Standard (v3.1).
+The Co-operative Bank plc is a UK high-street retail and commercial bank, headquartered in Manchester and long known for its customer-led ethical banking policy. Following its 2013-2017 recapitalisation it was owned by institutional bondholders, and in January 2025 it completed its acquisition by Coventry Building Society, becoming part of the member-owned Coventry Building Society Group; it also operates the online-only "smile" brand. Authorised by the PRA and regulated by the FCA and PRA, it is an FCA-authorised ASPSP under PSD2 and the UK Open Banking regime. While it is not one of the nine CMA-mandated banks (CMA9), it implements the Open Banking Implementation Entity (OBIE) Read/Write API Standard (v3.1) and publishes a public developer portal at developer.co-operativebank.co.uk exposing Account Information (AIS), Payment Initiation (PIS), and Confirmation of Funds (CBPII) APIs for both the Co-operative Bank and smile brands, secured with FAPI-grade OAuth2/OIDC, mutual-TLS client authentication using Open Banking directory certificates, and PSD2 strong customer authentication, with a manual TPP onboarding process and a sandbox for testing before production.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/co-operative-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/co-operative-bank/refs/heads/main/apis.yml)
+**Areas:** Financial Services · Banking · Open Banking · PSD2 · OBIE · United Kingdom · Payments · Account Information · Confirmation of Funds · Fintech
 
-## Tags
+## The Co-operative Bank on APIs.io
 
-- Financial Services
-- Banking
-- Open Banking
-- PSD2
-- OBIE
-- United Kingdom
-- Payments
-- Account Information
-- Confirmation of Funds
-- Fintech
+Everything profiled for The Co-operative Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/co-operative-bank/](https://apis.io/providers/co-operative-bank/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+- [The Co-operative Bank Account Information API (AIS)](https://apis.io/apis/co-operative-bank/account-information-api/) — OBIE Read/Write Account & Transaction Information (AISP) API for The Co-operative Bank and smile brands — account-access consents, accounts, balances,…
+- [The Co-operative Bank Payment Initiation API (PIS)](https://apis.io/apis/co-operative-bank/payment-initiation-api/) — OBIE Read/Write Payment Initiation (PISP) API for The Co-operative Bank and smile brands — domestic payments, domestic scheduled payments and domestic…
+- [The Co-operative Bank Confirmation of Funds API (CBPII)](https://apis.io/apis/co-operative-bank/confirmation-of-funds-api/) — OBIE Read/Write Confirmation of Funds (CBPII / Card-Based Payment Instrument) API — funds-confirmation consent and funds-confirmation checks for The…
+- [The Co-operative Bank ATM API](https://apis.io/apis/co-operative-bank/co-operative-bank-atm-api/) — Endpoint for getting ATM data
+- [The Co-operative Bank BCA API](https://apis.io/apis/co-operative-bank/co-operative-bank-bca-api/) — Endpoint for getting Business Current Account data
+- [The Co-operative Bank Branch API](https://apis.io/apis/co-operative-bank/co-operative-bank-branch-api/) — Endpoint for getting Branch data
+- [The Co-operative Bank CCC API](https://apis.io/apis/co-operative-bank/co-operative-bank-ccc-api/) — Endpoint for getting Commercial Credit Card data
+- [The Co-operative Bank PCA API](https://apis.io/apis/co-operative-bank/co-operative-bank-pca-api/) — Endpoint for getting Personal Current Account data
+- [The Co-operative Bank SME API](https://apis.io/apis/co-operative-bank/co-operative-bank-sme-api/) — Endpoint for getting Unsecured SME Loan data
 
-## APIs
+### Published properties
 
-### The Co-operative Bank Account Information API (AIS)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-OBIE Read/Write Account & Transaction Information (AISP) API for The Co-operative Bank and smile brands — account-access consents, accounts, balances, transactions, direct debits, standing orders and scheduled payments. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP onboarding.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.developer.co-operativebank.co.uk/apis/aisp/](https://www.developer.co-operativebank.co.uk/apis/aisp/)
-- **Base URL:** `https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/aisp`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Co Operative Bank Agentic Access](https://apis.io/agentic-access/co-operative-bank/co-operative-bank-agentic-access/)
 
-- Account Information
-- AISP
-- Open Banking
+#### Collections (1)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://www.developer.co-operativebank.co.uk/apis/aisp/)
-- [API Reference](https://www.developer.co-operativebank.co.uk/apis/aisp/endpoints-and-errors/)
+- [Open Data API](https://apis.io/collections/co-operative-bank/open-obie-open-data-api-standard-swagger/)
 
-### The Co-operative Bank Payment Initiation API (PIS)
+#### Overlays (1)
 
-OBIE Read/Write Payment Initiation (PISP) API for The Co-operative Bank and smile brands — domestic payments, domestic scheduled payments and domestic standing orders, with their associated consents. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP onboarding.
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://www.developer.co-operativebank.co.uk/apis/pisp/](https://www.developer.co-operativebank.co.uk/apis/pisp/)
-- **Base URL:** `https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/pisp`
+- [Co Operative Bank Open Data Overlay](https://apis.io/overlays/co-operative-bank/co-operative-bank-open-data-overlay/)
 
-#### Tags
+#### Security (3)
 
-- Payment Initiation
-- PISP
-- Payments
-- Open Banking
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Co Operative Bank Authentication](https://apis.io/security/co-operative-bank/co-operative-bank-authentication/)
+- [Co Operative Bank Domain Security](https://apis.io/security/co-operative-bank/co-operative-bank-domain-security/)
+- [Co Operative Bank Vulnerability Disclosure](https://apis.io/security/co-operative-bank/co-operative-bank-vulnerability-disclosure/)
 
-- [Documentation](https://www.developer.co-operativebank.co.uk/apis/pisp/)
-- [API Reference](https://www.developer.co-operativebank.co.uk/apis/pisp/endpoints-and-errors/)
+#### OAuth scopes (1)
 
-### The Co-operative Bank Confirmation of Funds API (CBPII)
+The permissions the API asks for.
 
-OBIE Read/Write Confirmation of Funds (CBPII / Card-Based Payment Instrument) API — funds-confirmation consent and funds-confirmation checks for The Co-operative Bank and smile brands. FAPI-secured (OAuth2/OIDC, mTLS, PSD2 SCA); requires TPP onboarding.
+- [Co Operative Bank Scopes](https://apis.io/scopes/co-operative-bank/co-operative-bank-scopes/)
 
-- **Human URL:** [https://www.developer.co-operativebank.co.uk/apis/cbpii/](https://www.developer.co-operativebank.co.uk/apis/cbpii/)
-- **Base URL:** `https://openbanking-retail.apis.co-operativebank.co.uk/apis/retail/open-banking/v3.1/cbpii`
+## Where to find this API
 
-#### Tags
-
-- Confirmation of Funds
-- CBPII
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://www.developer.co-operativebank.co.uk/apis/cbpii/)
-- [API Reference](https://www.developer.co-operativebank.co.uk/apis/cbpii/endpoints-and-errors/)
-
-### The Co-operative Bank Open Data API (OBIE standard)
-
-Public, unauthenticated OBIE Open Data reference data (ATMs, Branches, Personal & Business Current Accounts, Unsecured SME Loans, Commercial Credit Cards). A live Co-operative Bank Open Data host was not confirmed during this bootstrap, so no bank-specific base URL is asserted; the attached OpenAPI is the shared OBIE Open Data API Standard, not a Co-operative Bank contract.
-
-- **Human URL:** [https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/)
-
-#### Tags
-
-- Open Data
-- ATM Locator
-- Branch Locator
-- Products
-
-#### Properties
-
-- [OpenAPI](openapi/obie-open-data-api-standard-swagger.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.co-operativebank.co.uk/)
-- [Developer Portal](https://www.developer.co-operativebank.co.uk/)
 - [Documentation](https://www.developer.co-operativebank.co.uk/apis/)
-- [Getting Started](https://www.developer.co-operativebank.co.uk/get-started/)
-- [Sandbox](https://www.developer.co-operativebank.co.uk/help-and-support/sandbox-environment/)
-- [Status Page](https://www.developer.co-operativebank.co.uk/help-and-support/service-status/)
+- [Getting started](https://www.developer.co-operativebank.co.uk/get-started/)
+- [Sign up](https://www.developer.co-operativebank.co.uk/get-started/)
 - [Support](https://www.developer.co-operativebank.co.uk/help-and-support/frequently-asked-questions/)
-- [Privacy Policy](https://www.developer.co-operativebank.co.uk/help-and-support/privacy-cookie-policies/)
-- [LinkedIn](https://www.linkedin.com/company/the-co-operative-bank)
+- [Security](https://www.co-operativebank.co.uk/help-and-support/fraud-and-security/responsible-security-disclosure/)
+- [Privacy policy](https://www.developer.co-operativebank.co.uk/help-and-support/privacy-cookie-policies/)
+- [Status](https://www.developer.co-operativebank.co.uk/help-and-support/service-status/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 43.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 37.1 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 61.9 |
+| Access clarity | 23.7 |
+
+**Agent readiness 30.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 45.7** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/co-operative-bank/](https://apis.io/providers/co-operative-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for The Co-operative Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/co-operative-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
